@@ -1,0 +1,94 @@
+﻿@page "/AMS"
+@rendermode InteractiveServer
+@inject NavigationManager navigationManager
+
+<div class="container">
+    <div class="row mb-3 panel">
+        <div class="col" >
+            <h1>AMS - Application Monitoring System</h1>
+            <p>
+                This was a work project. My manager suggested I implement a system which would automatically run
+                some of
+                the daily checks which then had to be specifically run every morning by a member of the team.
+            </p>
+            <p>This was the design I came up with and implemented.</p>
+        </div>
+    </div>
+    <div class="row mb-3 panel">
+        <div class="col" >
+
+            <h2>The Idea</h2>
+            <p>
+                To implement a website showing the status of various checks that could be added to a database.
+                This website could be displayed on a large screen and would update automatically showing changes in
+                the status of these checks during the day.
+                A summary email was added later which displays the current status of all checks at the time the
+                e-mail is sent out.
+            </p>
+
+            <p>There are five different check types </p>
+
+            <ul class="list-group " style="width:80%;">
+                <li class="list-group-item" style="background-color:lightgrey;">Cube Checks - Connects to an SSAS
+                    server and retrieves the status of each cube defined.</li>
+                <li class="list-group-item" style="background-color:lightgrey;">Log Checks - Retrieves the log type
+                    checks from the database and searches the log supplied for a
+                    success or failure word or phrase - only when log changes.</li>
+                <li class="list-group-item" style="background-color:lightgrey;">SQL Checks - Retrieves the sql type
+                    checks from the database and runs the stored procedure
+                    specified.</li>
+                <li class="list-group-item" style="background-color:lightgrey;">Services Checks - Retrieves the
+                    services type checks from the database and checks if the log
+                    supplied has been updated within a certain time period e.g. 15 mins. </li>
+                <li class="list-group-item" style="background-color:lightgrey;">Directory Checks - Retrieves the
+                    directory type checks from the database and checks that the
+                    directory supplied is empty at a certain time. </li>
+            </ul>
+            <p class="mt-3">
+                The webpage displays check types with no issues on the right side of the screen in green and
+                displayed all the checks which failed on the left hand side in either red (for failed) or yellow (in
+                progress).
+            </p>
+        </div>
+    </div>
+    <div class="row mb-3 pb-3 panel">
+        <div class="col" >
+            <h2>The Implementation</h2>
+            <br />
+            <p>This was entirely written in C# writing to a SQL Server database using VS2015, SQL Server 2014 and
+                Team
+                Foundation Server 2015. It is currently Live and in use.</p>
+            <p>There was a lot involved in this project but the main components were as follows: </p>
+            <ul class="list-group" style="width:80%;">
+                <li class="list-group-item" style="background-color:lightgrey;">A webpage which updates every 5 mins
+                    using AJAX showing the status of a set of checks. </li>
+                <li class="list-group-item" style="background-color:lightgrey;">A database which holds details of
+                    each check required so these are soft coded but have a specific
+                    check type. It also holds the results of checks run in a log table and tracks progress of each
+                    check
+                    in an activity table.</li>
+                <li class="list-group-item" style="background-color:lightgrey;">It updates Performance Counters on
+                    the server which can be read by <a
+                        href="https://en.wikipedia.org/wiki/System_Center_Operations_Manager">SCOM</a>. The counters
+                    are
+                    set to 0 if the check passes and 1 if they fail.</li>
+                <li class="list-group-item" style="background-color:lightgrey;">A maintenance page where the codes
+                    and checks can be maintained.</li>
+                <li class="list-group-item" style="background-color:lightgrey;">It sends out a daily checks email to
+                    a distribution list held on the database with a snapshot view
+                    as at that time - currently 8:00AM. It holds the status of all checks in one email.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <button class="btn btn-primary" @onclick="() => ReturnButton()">Return to home</button>
+        </div>
+    </div>
+
+</div>
+
+
+@code {
+    private void ReturnButton() => navigationManager!.NavigateTo("/");
+}

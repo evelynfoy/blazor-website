@@ -1,0 +1,142 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inject NavigationManager navigationManager
+
+@* -- Intro -- *@
+<div class="container">
+    <div class="row" id="top">
+        <div class="col-md-12" style="background-color: #f7f7f7">
+            <PageTitle>Home</PageTitle>
+            <h1 >Hi, everyone! </h1>
+            <h3 class="mt-3 mb-3">I'm Evelyn Foy and welcome to my new blazor website.</h3>
+            <p>This website is a blazor app which consumes a minimal API.</p>
+            <p>I developed this website in order to practise my recently enhanced C# skills.</p>
+            <p>I work as an application support analyst in a C# .Net environment but I am keen to move into a development position.</p>
+        </div>
+    </div>
+@* Certifications *@
+    <div class="row mt-3 mb-1">
+        <div class="col mb-3" style="background-color: #f7f7f7">
+            <p class="mt-3">To that end I have recently completed the following <b>Microsoft</b> exams:-</p>
+            @* <h4>Microsoft</h4> *@
+            @* <div class="d-sm-none d-md-block"> *@
+            <div class="d-none d-lg-block ">
+                <div style="width: 50%; float:left;">
+                    <h5> Certifications</h5>
+                    <div class="mb-3">
+                        <ul class="list-group me-5">
+                            <li class="list-group-item" >
+                                <a target="_blank" href="https://freecodecamp.org/certification/evelynfoy/foundational-c-sharp-with-microsoft">Foundational C#</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/B55939BCF59CBAEA?sharingId=9F7A38B66A673B64">Azure Developer Associate</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a target="_blank" href="https://learn.microsoft.com/en-gb/users/foyevelyn-9747/credentials/deb711145da2b744">Azure Fundamentals</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="width: 50%; float:left;">
+                    <h5 >Applied Skills</h5>
+                    <div>
+                        <ul class="list-group me-5">
+                            <li class="list-group-item"><a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/D6742979F528C38D?sharingId=9F7A38B66A673B64">ASP.NET Core web app that consumes an API</a></li>
+                            <li class="list-group-item"><a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/16E538A995640B1A?sharingId=9F7A38B66A673B64/">Classes, properties, and methods in C#</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row d-block d-lg-none">
+        <div class="col">
+            <div class="d-block d-lg-none " style="clear:both;">
+                <h5>Certifications</h5>
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a target="_blank" href="https://freecodecamp.org/certification/evelynfoy/foundational-c-sharp-with-microsoft">Foundational C#</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/B55939BCF59CBAEA?sharingId=9F7A38B66A673B64">Azure Developer Associate</a>
+                        </li>
+                        <li class="list-group-item"> 
+                            <a target="_blank" href="https://learn.microsoft.com/en-gb/users/foyevelyn-9747/credentials/deb711145da2b744">Azure Fundamentals</a>
+                        </li>
+                    </ul>
+                </div>
+                <h5 class="mt-3" >Applied Skills</h5>
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/D6742979F528C38D?sharingId=9F7A38B66A673B64">ASP.NET Core web app that consumes an API</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/16E538A995640B1A?sharingId=9F7A38B66A673B64/">Classes, properties, and methods in C#</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@* Experiance *@
+    <div class="row mt-1 pt-3 panel">
+        <p>Over the last 10 years, I have had various oportunities to work with code and developing e.g.</p>
+    </div>
+    <div class="row pb-3 panel">
+        <div class="col">
+            <div class="card p-3">
+                <h5 class="card-title">AMS</h5>
+                <p class="card-text">Application Monitoring System</p>
+                <span>C#, SQL Server</span>
+                <p class="card-text">Developed and maintain</p>
+                <a href="ams">More...</a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card p-3">
+                <h5 class="card-title">MAT Tool</h5>
+                <p class="card-text">Miscelaneous Admin Tasks</p>
+                <span>VB, SQL Server</span>
+                <p class="card-text">Maintain and extend.</p>
+                <a href="articles#matTool">More...</a>
+            </div>
+        </div>
+        <div class="col" >
+            <div class="card p-3">
+                <h5 class="card-title">Secondment</h5>
+                <p>2023-2024</p>
+                <a href="articles#secondment2023">More...</a>
+            </div>
+        </div>
+        <div class="col" >
+            <div class="card p-3" >
+                <h5 class="card-title">Secondment</h5>
+                <p>2018</p>
+                <a href="articles#secondment2018">More...</a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card p-3 " >
+                <h5 class="card-title">Daily Work</h5>
+                <p>various </p>
+                <a href="articles#dailyWork">More...</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-1 mb-3 panel" >
+        <div class="col-8 pt-3"
+            <p>I have also completed many Projects and a Full Stack Software development Diploma in 2022.</p>
+            <p>Please visit the <a href="Projects">Projects</a> page and my <a href="https://www.linkedin.com/in/evelynfoy" target="_blank" rel="noopener">linked in</a> page for further details and to contact me. </p>
+            <a href="#top">Back To top</a>
+        </div>
+
+    </div>
+</div> 
+
+
+
+
