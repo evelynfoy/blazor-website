@@ -1,0 +1,94 @@
+﻿@page "/create"
+@rendermode InteractiveServer
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<div class="container border p-3 mt-4">
+    @* Heading *@
+    <div class="row pb-2">
+        <div class="col">
+            <h2 class="text-primary pl-3">Add Project</h2>
+            <hr />
+        </div>
+    </div>
+
+    @* Form *@
+    <EditForm FormName="CreateProject" Model="newProject" OnSubmit="Submit">
+        <InputNumber hidden="true" @bind-Value="newProject!.Id" />
+        <div class="row pb-3">
+            <div class="col">
+                <label class="h5">Name</label>
+                <InputText class="displaySize" @bind-Value="newProject!.Name" />
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col">
+                <label class="h5">Type</label>
+                <InputText class="displaySize" @bind-Value="newProject!.Type" />
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col">
+                <label class="h5">Description</label>
+                <InputText class="displaySize" @bind-Value="newProject!.Description" />
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col">
+                <label class="h5">Source Control Repository</label>
+                <InputText class="displaySize" @bind-Value="newProject!.SourceControlRepository" />
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col">
+                <label class="h5">Url</label>
+                <InputText class="displaySize" @bind-Value="newProject!.Url" />
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="Submit">Submit</button>
+        <a href="/admin">Cancel</a>
+
+        @if (message is not "")
+        {
+            <div class="alert alert-danger mt-3" >@(message)</div>
+        }
+    </EditForm>
+</div>
+
+
+@code {
+    private Project newProject { get; set;} = new();
+    private Project[]? projects;
+    private string message = "";
+
+    protected override void OnInitialized()  => newProject ??= new();
+
+    private async Task Submit()
+    {
+        newProject.Id = 0;
+
+        // Remove admin phrase from title before saving if there and add demo: tag if not
+        if (newProject.Name is not null && newProject.Name.Contains(":ef") )
+        {
+            newProject.Name = newProject.Name.Replace(":ef", "");
+        }
+        else
+        {
+            newProject.Name = "Demo:" + newProject.Name;
+        }
+
+        // Post project to database
+        var response = await httpClient.PostAsJsonAsync<Project>("/project", newProject);
+
+        // Check if the operation was successful, and navigate to the admin page if it was
+        if (response.IsSuccessStatusCode)
+        {
+            navigationManager?.NavigateTo("/admin");
+        }
+        else
+        {
+            message = $"Error ocurred. Failed to add project. Status code: {response.StatusCode} ";
+        }
+    }
+}
