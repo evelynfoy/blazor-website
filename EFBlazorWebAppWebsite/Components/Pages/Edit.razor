@@ -1,0 +1,122 @@
+﻿@page "/edit/{Id:int}"
+@rendermode InteractiveServer
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<div class="container border p-3 mt-4">
+    <div class="row pb-2">
+        <div class="col">
+            <h2 class="text-primary pl-3">Edit Project</h2>
+            <hr />
+        </div>
+    </div>
+    <EditForm FormName="EditProject" Model="_project" OnSubmit="Submit">
+        <InputNumber hidden="true" @bind-Value="_project!.Id" />
+        <div class="row pb-3">
+            <div class="col">
+                <label class="h5">Name</label>
+                <InputText class="displaySize" @bind-Value="_project!.Name" />
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col">
+                <label class="h5">Type</label>
+                <InputText class="displaySize" @bind-Value="_project!.Type" />
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col">
+                <label class="h5">Description</label>
+                <InputTextArea class="displaySize" @bind-Value="_project!.Description" />
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col">
+                <label class="h5">Source Control Repository</label>
+                <InputText class="displaySize" @bind-Value="_project!.SourceControlRepository" />
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col">
+                <label class="h5">Url</label>
+                <InputText class="displaySize" @bind-Value="_project!.Url" />
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="Submit">Submit</button>
+        <a href="/admin">Cancel</a>
+        
+        @if (message is not "")
+        {
+            <div class="alert alert-danger mt-3" >@(message) <a href="/admin">Return to Admin</a> </div>
+        }
+    </EditForm>
+</div>
+
+
+@code {
+
+[SupplyParameterFromForm]
+    private Project? _project { get; set; }
+    private string message = ""; 
+    private bool isProjectReal;
+
+    // Add the parameter to the page
+    [Parameter]
+    public int? Id { get; set; }
+
+    // Initialize the project list
+    protected override void OnInitialized() => _project ??= new();
+
+    //  Retrieve the data to populate the form for deletion
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _project = await httpClient.GetFromJsonAsync<Project>("/project/" + Id);
+            isProjectReal = (_project?.Name is not null && _project.Name.Contains("Demo:")) ? false : true;
+        }
+        catch (Exception ex )
+        {
+            message = $"Error ocurred. Failed to retrieve project. Status code: {ex.Message}";
+        }
+    }
+
+    // Begin Put operation code
+    private async Task Submit()
+    {
+        if (_project is not null && _project.Name is not null)
+        {
+            if (isProjectReal && !_project.Name.Contains(":ef"))
+            {
+                message = "Only I can change my projects. Try changing a demo project. ";
+            }
+            else
+            {
+                if (_project.Name.Contains(":ef"))
+                {
+                    _project.Name = _project.Name.Replace(":ef", "");
+                }
+                if (!isProjectReal && !_project.Name.Contains("Demo:"))
+                {
+                    _project.Name = "Demo:" + _project.Name;
+                }
+
+                using HttpResponseMessage response = await httpClient.PutAsJsonAsync<Project>($"/project/{Id}", _project);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    navigationManager?.NavigateTo("/admin");
+                }
+                else
+                {
+                    message = $"Error ocurred. Failed to add project. Status code: {response.StatusCode} ";
+                }
+            }
+        }
+        else
+        {
+            navigationManager?.NavigateTo("/admin");
+        }
+    }
+}

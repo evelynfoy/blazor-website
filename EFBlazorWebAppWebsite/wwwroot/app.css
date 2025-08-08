@@ -80,3 +80,8 @@ h1:focus {
 .displaySize {
     width: 100%;
 }
+
+.btn-primary {
+        background-image: linear-gradient(180deg, rgb(135, 170, 245) 0%, rgb(5, 39, 103) 80%);
+
+}
