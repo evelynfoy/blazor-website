@@ -71,8 +71,15 @@
     //  Retrieve the data to populate the form for deletion
     protected override async Task OnInitializedAsync()
     {
-        _project = await httpClient.GetFromJsonAsync<Project>("/project/" + Id);
-        isProjectReal = (_project?.Name is not null && _project.Name.Contains("Demo:")) ? false : true;
+        try
+        {
+            _project = await httpClient.GetFromJsonAsync<Project>("/project/" + Id);
+            isProjectReal = (_project?.Name is not null && _project.Name.Contains("Demo:")) ? false : true;
+        }
+        catch (Exception ex )
+        {
+            message = $"Error ocurred. Failed to retrieve project. Status code: {ex.Message}";
+        }
     }
 
     // Begin Put operation code
