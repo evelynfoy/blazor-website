@@ -105,7 +105,7 @@
 
                 try 
                 {
-                    Project? deletedItem = await httpClient.DeleteFromJsonAsync<Project>($"/projec/{Id}");
+                    Project? deletedItem = await httpClient.DeleteFromJsonAsync<Project>($"/project/{Id}");
                     navigationManager!.NavigateTo("/admin");
                 }
                 catch (Exception ex )
