@@ -1,20 +1,17 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+ This portfolio website implements a Blazor application that consumes a [Minimal API](https://github.com/evelynfoy/ef-minimal-api).
+ The API provides details of projects stored in a SQLite database which can be maintained through this website.
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# Features
+- A Projects page that displays a list of projects with a link to the source control repository and a details button.
+- A Details page displaying additional details for projects and an image that is stored in Azure Blob storage.
+- An admin page which allows full CRUD functionality for maintaining the projects on the SQLite database.
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+1. Clone the repository - <code>git clone https://github.com/evelynfoy/blazor-website</code>
+2. Connect to the project folder. <code>cd blazor-website</code> 
+3. Run <code>dotnet run</code> or press F5 to run through Visual Studio.
 
 # Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+- [Microsoft Applied Skills Learning Path - Develop an ASP.NET Core web app that consumes an API](https://learn.microsoft.com/en-us/credentials/applied-skills/develop-an-aspnet-core-web-app-that-consumes-an-api/) 
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
