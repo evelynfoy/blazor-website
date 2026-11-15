@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddScoped<HttpClient>(sp => new HttpClient { BaseAddress = new Uri("https://efminimalapicoreweb.azurewebsites.net/") });
+builder.Services.AddScoped<HttpClient>(sp => new HttpClient { BaseAddress = new Uri("https://efminimalapicorewebv1.azurewebsites.net/") });
 
 var app = builder.Build();
 

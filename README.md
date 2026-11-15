@@ -4,7 +4,7 @@
 
 # Features
 - A Projects page that displays a list of projects with a link to the source control repository and a details button.
-- A Details page displaying additional details for projects and an image that is stored in Azure Blob storage.
+- A Details page displaying additional details for projects.
 - An admin page which allows full CRUD functionality for maintaining the projects on the SQLite database.
 
 # Build and Test
