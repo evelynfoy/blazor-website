@@ -2,138 +2,452 @@
 @rendermode InteractiveServer
 @inject NavigationManager navigationManager
 
-@* -- Intro -- *@
-<div class="container">
-    <div class="row" id="top">
-        <div class="col-md-12 panel">
-            <PageTitle>Home</PageTitle>
-            <h1 class="p-3 text-center" >Welcome! </h1>
-            <h3 class="mt-3 mb-3 text-center">I'm Evelyn Foy and this is my new blazor website.</h3>
-            <p class="pt-3">This website is a blazor app which consumes a minimal API.</p>
-            <p>I developed this website in order to practise my recently enhanced C# skills.</p>
-            <p>I work as an application support analyst in a C# .Net environment but I am keen to move into a development position.</p>
+<PageTitle>Evelyn Foy | Software Developer Portfolio</PageTitle>
+
+@* Introduction *@
+<section class="py-4 py-md-5 mb-4" id="top">
+    <div class="row align-items-center">
+        <div class="col-lg-9">
+            <p class="text-primary fw-semibold mb-2">
+                SOFTWARE DEVELOPMENT PORTFOLIO
+            </p>
+
+            <h1 class="display-5 fw-bold mb-3">
+                Hi, I'm Evelyn Foy.
+            </h1>
+
+            <h2 class="h4 text-body-secondary mb-4">
+                Software Developer | C# · .NET · ASP.NET Core
+            </h2>
+
+            <p class="lead">
+                I’m an experienced IT professional with a background
+                in software development, application support and
+                enterprise systems.
+            </p>
+
+            <p>
+                I’m building on my development experience through
+                hands-on projects using ASP.NET Core MVC, Web APIs,
+                Blazor and other modern development technologies.
+                Explore my projects below to see examples of my work.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2 mt-4">
+                <a href="#projects" class="btn btn-primary">
+                    Explore my projects
+                </a>
+
+                <a href="https://github.com/evelynfoy"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-outline-secondary">
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/in/evelynfoy"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-outline-secondary">
+                    LinkedIn
+                </a>
+            </div>
         </div>
     </div>
+</section>
+
+<hr class="my-5" id="projects" />
+
+@* Featured projects *@
+
+<section class="py-4">
+    <div class="mb-4">
+        <h2 class="h2 fw-bold">Featured Projects</h2>
+        <p class="text-body-secondary">
+            Selected projects demonstrating my development skills,
+            technical learning and practical application of software
+            development concepts.
+        </p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+        @* Metal Mate *@
+        <div class="col">
+            <article class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column p-4">
+                    <span class="badge text-bg-primary align-self-start mb-3">
+                        Featured project
+                    </span>
+
+                    <h3 class="h4 card-title">Metal Mate</h3>
+
+                    <p class="text-body-secondary small">
+                        C# · ASP.NET Core MVC · Entity Framework Core
+                        · ASP.NET Core Identity
+                    </p>
+
+                    <p class="card-text">
+                        A web application that retrieves precious-metal
+                        prices from an external API, supports different
+                        metals and currencies, and allows authenticated
+                        users to manage personalised price-alert requests.
+                    </p>
+
+                    <p class="card-text">
+                        Features include user authentication, profile
+                        preferences, database operations, validation,
+                        error handling and automated tests.
+                    </p>
+                    <p>
+                        An azure timer function to process requests and send emails is in progress.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <div class="mt-auto pt-3">
+                            <a href="https://github.com/evelynfoy/metal-mate-csharp-project"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-outline-primary w-100">
+                                View source code
+                            </a>
+                        </div>
+                        <div class="mt-auto pt-3">
+                            <a href="https://metalmate-hbdydvh5eagcc8e7.westeurope-01.azurewebsites.net/"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-outline-primary w-100">
+                                View live application
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+        </div>
+        @* Blazor website *@
+        <div class="col">
+            <article class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column p-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge text-bg-light border align-self-start mb-3">
+                            Blazor
+                        </span>
+                        <span class="badge text-bg-light border align-self-start mb-3">
+                            This website
+                        </span>
+                    </div>
+
+                    
+                    <h3 class="h4 card-title">
+                        Blazor Portfolio Website
+                    </h3>
+
+                    <p class="text-body-secondary small">
+                        C# · Blazor · Minimal API · SQLite
+                    </p>
+
+                    <p class="card-text">
+                        This portfolio website demonstrates a Blazor
+                        application consuming a Minimal API, bringing
+                        together front-end components, API communication
+                        and database-backed functionality.
+                    </p>
+                    <p>
+                        Features include full CRUD functionality and images stored in Azure blob storage.
+                        Both website and api are hosted on Azure.
+                    </p>
+                    <div class="mt-auto pt-3">
+                        <a href="https://github.com/evelynfoy/blazor-website"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn-outline-primary w-100">
+                            View source code - Website
+                        </a>
+                    </div>
+                    <div class="mt-2 pt-3">
+                        <a href="https://github.com/evelynfoy/ef-minimal-api"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn-outline-primary w-100">
+                            View source code - API
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        @* Django e-commerce project *@
+        <div class="col">
+            <article class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column p-4">
+                    <span class="badge text-bg-light border align-self-start mb-3">
+                        Full-stack development
+                    </span>
+
+                    <h3 class="h4 card-title">
+                        Cheese and Wine Boutique
+                    </h3>
+
+                    <p class="text-body-secondary small">
+                        Python · Django · PostgreSQL · JavaScript · Stripe
+                    </p>
+
+                    <p class="card-text">
+                        A full-stack e-commerce project demonstrating
+                        product management, shopping functionality,
+                        database integration and payment processing.
+                    </p>
+
+                    <div class="col">
+                        <img src="images/Cheese.png"
+                             class="img-fluid rounded-start project-image"
+                             alt="Metal Mate application screenshot" />
+                    </div>
+
+                    <div class="mt-auto pt-3">
+                        <a href="https://github.com/evelynfoy/the-cheese-and-wine-boutique"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn-outline-primary w-100">
+                            View source code
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/Projects" class="btn btn-primary">
+            View all projects
+        </a>
+    </div>
+</section>
+
+<hr class="my-4" />
+
+@* Technical skills *@
+<section id="skills" class="py-4">
+    <h2 class="h2 fw-bold mb-3">Technical Skills</h2>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <h3 class="h5">Languages and frameworks</h3>
+            <p>
+                C#, SQL, JavaScript, Python, ASP.NET Core MVC,
+                Web APIs, Blazor, Django, HTML5 and CSS3.
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="h5">Databases and tools</h3>
+            <p>
+                SQL Server, SQLite, PostgreSQL, Entity Framework Core,
+                Git, GitHub, Azure and Azure DevOps.
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="h5">Development practices</h3>
+            <p>
+                API integration, authentication, Agile development (sprints and user stories), SOLID principles,
+                unit and integration testing (xUnit and Moq),
+                debugging, validation, exception handling and version control.
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="h5">Professional experience</h3>
+            <p>
+                C# application development and enhancements, SQL Server and SSIS/ETL troubleshooting, application support,
+                data transmission and collaboration with development teams.
+            </p>
+        </div>
+    </div>
+</section>
+
+<hr class="my-4" />
+
 @* Certifications *@
-    <div class="row mt-3 mb-1">
-        <div class="col mb-3 panel">
-            <p class="mt-3">To that end I have recently completed the following <b>Microsoft</b> exams:-</p>
-            <div class="d-none d-lg-block ">
-                <div style="width: 50%; float:left;">
-                    <h5> Certifications</h5>
-                    <div class="mb-3">
-                        <ul class="list-group me-5">
-                            <li class="list-group-item" >
-                                <a target="_blank" href="https://freecodecamp.org/certification/evelynfoy/foundational-c-sharp-with-microsoft">Foundational C#</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/B55939BCF59CBAEA?sharingId=9F7A38B66A673B64">Azure Developer Associate</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a target="_blank" href="https://learn.microsoft.com/en-gb/users/foyevelyn-9747/credentials/deb711145da2b744">Azure Fundamentals</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="width: 50%; float:left;">
-                    <h5 >Applied Skills</h5>
-                    <div>
-                        <ul class="list-group me-5">
-                            <li class="list-group-item"><a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/D6742979F528C38D?sharingId=9F7A38B66A673B64">ASP.NET Core web app that consumes an API</a></li>
-                            <li class="list-group-item"><a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/16E538A995640B1A?sharingId=9F7A38B66A673B64/">Classes, properties, and methods in C#</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+<section id="certifications" class="py-4">
+    <h2 class="h2 fw-bold mb-3">
+        Certifications and Applied Skills
+    </h2>
+
+    <p>
+        Microsoft credentials supporting my development skills
+        in C#, Azure and ASP.NET Core.
+    </p>
+
+    <div class="list-group mb-4">
+
+        
+        <a class="list-group-item list-group-item-action"
+           href="https://freecodecamp.org/certification/evelynfoy/foundational-c-sharp-with-microsoft"
+           target="_blank"
+           rel="noopener noreferrer">
+            Foundational C# with Microsoft
+            <span class="float-end" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="list-group-item list-group-item-action"
+           href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/B55939BCF59CBAEA?sharingId=9F7A38B66A673B64"
+           target="_blank"
+           rel="noopener noreferrer">
+            Azure Developer Associate
+            <span class="float-end" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="list-group-item list-group-item-action"
+           href="https://learn.microsoft.com/en-gb/users/foyevelyn-9747/credentials/deb711145da2b744"
+           target="_blank"
+           rel="noopener noreferrer">
+            Azure Fundamentals
+            <span class="float-end" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="list-group-item list-group-item-action"
+           href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/D6742979F528C38D?sharingId=9F7A38B66A673B64"
+           target="_blank"
+           rel="noopener noreferrer">
+            Applied Skills: Develop an ASP.NET Core web app that consumes an API
+            <span class="float-end" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="list-group-item list-group-item-action"
+           href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/16E538A995640B1A?sharingId=9F7A38B66A673B64/"
+           target="_blank"
+           rel="noopener noreferrer">
+            Applied Skills: Get started with classes, properties, and methods in C#
+            <span class="float-end" aria-hidden="true">↗</span>
+        </a>
+
     </div>
-    <div class="row d-block d-lg-none">
-        <div class="col">
-            <div class="d-block d-lg-none " style="clear:both;">
-                <h5>Certifications</h5>
+
+</section>
+
+<hr class="my-4" />
+
+@* Certifications *@
+<section id="certifications" class="py-4">
+    <h2 class="h2 fw-bold mb-3">
+        Education and Professional Development
+    </h2>
+    <div class="list-group mb-4">
+        <a class="list-group-item list-group-item-action"
+           href="https://www.credential.net/ccceefa5-1cff-45d2-93af-3fcb01611e0a#acc.UDNVK9BT"
+           target="_blank"
+           rel="noopener noreferrer">
+            <strong>Professional Diploma in Full-Stack Software Development (NFQ Level 7).</strong>
+            <br />
+            UCD Professional Academy / Code Institute · 2022
+            <br />
+            View qualification
+            <span class="float-end" aria-hidden="true">↗</span>
+        </a>
+        <a class="list-group-item list-group-item-action"
+           href="https://www.credential.net/0cbf751f-470b-4c5a-a66b-cc016b152e74?username=margaretfoy"
+           target="_blank"
+           rel="noopener noreferrer">
+            <strong>National Diploma in Computing — Awarded with Merit</strong>
+            <br />
+            Carlow Regional Technical College · 1990
+            <br />
+            View qualification
+            <span class="float-end" aria-hidden="true">↗</span>
+        </a>
+        <div class="list-group-item list-group-item-action">
+            <strong>SOLID Principles in C# for Software Architecture & Design</strong>
+            <br />
+            Udemy · 2026 · Completed a practical project applying SOLID principles to C# development - See projects.
+            <div class="d-flex flex-wrap gap-2 mx-3 my-3">
                 <div>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <a target="_blank" href="https://freecodecamp.org/certification/evelynfoy/foundational-c-sharp-with-microsoft">Foundational C#</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/B55939BCF59CBAEA?sharingId=9F7A38B66A673B64">Azure Developer Associate</a>
-                        </li>
-                        <li class="list-group-item"> 
-                            <a target="_blank" href="https://learn.microsoft.com/en-gb/users/foyevelyn-9747/credentials/deb711145da2b744">Azure Fundamentals</a>
-                        </li>
-                    </ul>
+                    <a href="https://www.udemy.com/certificate/UC-404a2b6b-cf1e-45f1-bc28-d61d70b03076/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-outline-primary w-100">
+                        View certificate
+                    </a>
                 </div>
-                <h5 class="mt-3" >Applied Skills</h5>
                 <div>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/D6742979F528C38D?sharingId=9F7A38B66A673B64">ASP.NET Core web app that consumes an API</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a target="_blank" href="https://learn.microsoft.com/api/credentials/share/en-us/EvelynFoy-6472/16E538A995640B1A?sharingId=9F7A38B66A673B64/">Classes, properties, and methods in C#</a>
-                        </li>
-                    </ul>
+                    <a href="https://github.com/evelynfoy/Solid-Principles-Practise-Project/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-outline-primary w-100">
+                        View project
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-@* Experiance *@
-    <div class="row mt-1 pt-3 panel">
-        <p>Over the last 10 years, I have had various oportunities to work with code and developing e.g.</p>
-    </div>
-    <div class="row pb-3 panel">
-        <div class="col">
-            <div class="card p-3">
-                <h5 class="card-title">AMS</h5>
-                <p class="card-text">Application Monitoring System</p>
-                <span>C#, SQL Server</span>
-                <p class="card-text">Developed and maintain</p>
-                <a href="ams">More...</a>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card p-3">
-                <h5 class="card-title">MAT Tool</h5>
-                <p class="card-text">Miscelaneous Admin Tasks</p>
-                <span>VB, SQL Server</span>
-                <p class="card-text">Maintain and extend.</p>
-                <a href="articles#matTool">More...</a>
-            </div>
-        </div>
-        <div class="col" >
-            <div class="card p-3">
-                <h5 class="card-title">Secondment</h5>
-                <p>2023-2024</p>
-                <a href="articles#secondment2023">More...</a>
-            </div>
-        </div>
-        <div class="col" >
-            <div class="card p-3" >
-                <h5 class="card-title">Secondment</h5>
-                <p>2018</p>
-                <a href="articles#secondment2018">More...</a>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card p-3 " >
-                <h5 class="card-title">Daily Work</h5>
-                <p>various </p>
-                <a href="articles#dailyWork">More...</a>
-            </div>
-        </div>
-    </div>
+<hr class="my-4" />
 
-    <div class="row mt-1 mb-3 panel" >
-        <div class="col-8 pt-3"
-            <p>I have also completed many Projects and a Full Stack Software development Diploma in 2022.</p>
-            <p>Please visit the <a href="Projects">Projects</a> page and my <a href="https://www.linkedin.com/in/evelynfoy" target="_blank" rel="noopener">linked in</a> page for further details and to contact me. </p>
-            <a href="#top">Back To top</a>
-        </div>
+@* Professional experience *@
+<section id="experience" class="py-4">
+    <h2 class="h2 fw-bold mb-3">Professional Experience</h2>
+    <p>
+        My background combines software development experience
+        with long-standing work in enterprise application support. <br>
+        In my current role, I troubleshoot application and data processing and implement small fixes and
+        enhancements using C# and SQL Server.
+    </p>
+    <p>
+        I developed an Application Monitoring System in 2015 which was quite a large project and I enhanced an old application, "The MAT Tool",by adding additional functionality in 2019.
+    </p>
+    <p>
+        Both applications are still in use and I am the sole maintainer of both systems that I enhance regularly.
+    </p>
+    <p>
+        I experianced secondments with a development team in 2018 and 2023-2024.
+    </p>
+    <p>
+        My work has included improvements to data availability,
+        the removal of operational bottlenecks and resolving
+        issues affecting data storage and processing.
+    </p>
+    <a href="/ams#top" class="btn btn-outline-secondary me-2 mb-2">
+        Application Monitoring System
+    </a>
 
-    </div>
-</div> 
+    <a href="/articles#matTool"
+       class="btn btn-outline-secondary me-2 mb-2">
+        The MAT Tool
+    </a>
+
+    <a href="/articles#matTool"
+       class="btn btn-outline-secondary me-2 mb-2">
+        Secondments
+    </a>
+
+    <a href="/articles#matTool"
+       class="btn btn-outline-secondary me-2 mb-2">
+        Daily Work
+    </a>
+
+    <p class="mt-3">
+        <a href="https://www.linkedin.com/in/evelynfoy"
+           target="_blank"
+           rel="noopener noreferrer">
+            Visit my LinkedIn profile
+        </a>
+        for further professional information.
+    </p>
+</section>
+
+@* Footer *@
+<footer class="border-top mt-4 pt-4 pb-3 text-center">
+    <p class="text-body-secondary small mb-2">
+        Thank you for visiting my portfolio.
+    </p>
+
+    <a href="#top" class="link-secondary">
+        Back to top ↑
+    </a>
+</footer>
+
 
 
 
