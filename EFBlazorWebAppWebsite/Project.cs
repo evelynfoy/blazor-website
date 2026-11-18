@@ -10,5 +10,6 @@ public class Project
     public string? Description { get; set; }
     public string? SourceControlRepository { get; set; }
     public string? Url { get; set; }
+    public string? ImageUrl { get; set; }
 
 }

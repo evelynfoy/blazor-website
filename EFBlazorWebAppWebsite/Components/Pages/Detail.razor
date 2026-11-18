@@ -23,12 +23,27 @@
             <InputText class="displaySize" @bind-Value="currentProject!.Type" disabled />
         </div>
     </div>
-    <div class="row pb-3">
-        <div class="col">
-            <label class="h5">Description</label>
-            <InputTextArea class="displaySize" @bind-Value="currentProject!.Description" disabled/>
+    @if ((currentProject!.ImageUrl == "") || (currentProject!.ImageUrl is null))
+    {
+        <div class="row pb-3">
+            <div class="col">
+                <label class="h5">Description</label>
+                <InputTextArea rows="12" class="displaySize" @bind-Value="currentProject!.Description" disabled />
+            </div>
         </div>
-    </div>
+    }
+    else
+    {
+        <div class="row pb-3">
+            <div class="col-12 col-lg-6 ">
+                <label class="h5">Description</label>
+                <InputTextArea rows="12" class="displaySize" @bind-Value="currentProject!.Description" disabled />
+            </div>
+            <div class="col-12 col-lg-6 mt-4 pt-1">
+                <img class="img-fluid" src=@currentProject!.ImageUrl />
+            </div>
+        </div>
+    }
     
     <div class="row">
         <div class="col">
@@ -41,6 +56,13 @@
             <a href="@currentProject.Url" target="_blank" rel="noopener" aria-label="Visit the project website here">Website</a>
         </div>
     </div>
+
+    <div class="row mt-3 pb-3">
+        <div class="col">
+            <a href="@currentProject.Url" target="_blank" rel="noopener" aria-label="Visit the project website here">Website</a>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col">
             <button class="btn btn-primary" @onclick="() => ReturnButton()" >Return to projects</button>
