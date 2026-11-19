@@ -1,5 +1,6 @@
 ﻿@page "/"
 @rendermode InteractiveServer
+@inject HttpClient httpClient
 @inject NavigationManager navigationManager
 
 <PageTitle>Evelyn Foy | Software Developer Portfolio</PageTitle>
@@ -448,7 +449,19 @@
     </a>
 </footer>
 
+@code {
 
+private Project[]? projects;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Warm up the API by making an initial request to retrieve the projects data
+            projects = await httpClient.GetFromJsonAsync<Project[]?>("/projects");
+        }
+    }
+}
 
 
 
