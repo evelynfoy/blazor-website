@@ -3,14 +3,7 @@
 @inject NavigationManager navigationManager
 
 <div class="container">
-    <div class="py-4 py-md-5 mb-4" id="top"></div>
-
-    @* Page header *@
-    <header class="mb-4 pb-3 border-bottom">
-        <h1 class="display-6 fw-bold">
-            Articles
-        </h1>
-    </header>
+    <div class="py-4 py-md-5" id="top"></div>
 
     @* MAT Tool *@
     <section class="card shadow-sm" id="matTool">
@@ -92,7 +85,7 @@
                     Adding an entry to the task type configuration table.
                 </li>
                 <li>
-                    Defining the required parameters and their labels..
+                    Defining the required parameters and their labels.
                 </li>
             </ul>
 
@@ -110,12 +103,12 @@
                 <h3 class="h3 card-title">Secondment 2023-2024</h3>
                 <p class="mt-3">
                     I spent a day a week for about a year in 2023/2024 working with a development team as a developer.
-                    </p>
+                </p>
                 <p>
                     I worked on various systems analysing and fixing issues. 
-                    </p>
+                </p>
                 <p>
-                    I had some substantial coding experiance to the end of this time on a rewrite of an application in C#.
+                    I had some substantial coding experience to the end of this time on a rewrite of an application in C#.
                 </p>
             </div>
         </div>
@@ -147,24 +140,31 @@
                     Many incidents require reading through code and debugging it to resolve issues.
                 </p>
                 <p>
-                    On ocasion I have the oportunity to make small code changes which require going througn the entire life cycle of a change from requirement specing to development, testing and deployment. 
+                    On occasion I have the oPportunity to make small code changes which require going through 
+                    the entire life cycle of a change from requirement specification to development, testing and deployment. 
                 </p>
                 <p>
-                    It also required working closely with various dev teams organising environements and with the business to confirm the issue has been resolved.
+                    It also required working closely with various dev teams organising environments and with 
+                    the business to confirm the issue has been resolved.
                 </p>
 
             </div>
         </div>
     </section>
 
-    <div class="row mb-3">
-        <div class="col-8">
-            <button class="btn btn-primary" @onclick="() => ReturnButton()">Return to home</button>
+    @* Footer *@
+    <footer class="mt-4 pt-4 pb-3">
+        <div class="row mb-3">
+            <div class="col-6">
+                <button class="btn btn-primary" @onclick="() => ReturnButton()">Return to home</button>
+            </div>
+            <div class="col-6 mt-1">
+                <a href="articles#top" class="link-secondary">
+                    Back to top ↑
+                </a>
+            </div>
         </div>
-        <div class="col-4 mt-1">
-            <a href="articles#top">Back To top</a>
-        </div>
-    </div>
+    </footer>
 </div>
 
 @code {
