@@ -1,61 +1,170 @@
 ﻿@page "/articles"
 @rendermode InteractiveServer
 @inject NavigationManager navigationManager
+
 <div class="container">
-    <div class="row mb-3" style="background-color: #f7f7f7;">
-        <div class="col" >
-            <h1 id="top">Articles</h1>
+    <div class="py-4 py-md-5" id="top"></div>
+
+    @* MAT Tool *@
+    <section class="card shadow-sm" id="matTool">
+        <div class="card-body p-4">
+            <h2 class="card-title">
+                MAT Tool — Miscellaneous Administrative Tasks
+            </h2>
+
+            <p class="text-body-secondary">
+                Visual Basic · SQL Server · Application Maintenance
+            </p>
+
+            <h3 class="h5 mt-4">Overview</h3>
+
+            <p>
+                I am the sole maintainer of a long-standing administrative
+                application used by the service desk to carry out routine
+                operational tasks, including adding users to various
+                applications.
+            </p>
+
+            <h3 class="h5 mt-4">My Contribution</h3>
+
+            <p>
+                Over time, I have extended the application's functionality
+                by adding new tabs and capabilities to support additional
+                administrative tasks. This involves maintaining and
+                modifying the existing Visual Basic code and SQL Server
+                components.
+            </p>
+
+            <p class="mb-0">
+                This work requires understanding an established codebase,
+                assessing the impact of changes and maintaining the
+                reliability of an application used in day-to-day operations.
+            </p>
+
+            <h3 class="h5 mt-4">Configurable Task Type Functionality</h3>
+
+            <p class="mb-2">
+                One of the enhancements I introduced was a configurable task type system, 
+                allowing the Service Desk to carry out additional administrative tasks 
+                through a consistent interface.
+            </p>
+
+            <p class="mb-2">
+                Users can select from a list of predefined task types. Depending on the selection, 
+                the application dynamically displays the relevant input fields, allowing users to enter 
+                the required parameters and submit the task for processing.
+            </p>
+
+            <p class="mb-2">
+                Each task type can define up to six parameters, with configurable labels stored in a SQL Server table. 
+                Parameters can accept free-text input or populate dropdown lists using dedicated stored procedures.
+            </p>
+
+            <p class="mb-2">
+                When a task is submitted, the application executes the associated SQL stored procedure. 
+                Users can then view the outcome, including confirmation of successful completion or any error 
+                or feedback messages.
+            </p>
+
+            <h3 class="h5 mt-4">Benefits</h3>
+
+            <p class="mb-2">
+                This enhancement introduced a flexible way to add new Service Desk tasks without requiring 
+                changes to the application's existing code.
+            </p>
+
+            <p class="mb-0">
+                New tasks can be made available by:
+            </p>
+
+            <ul>
+                <li>
+                    Writing a SQL stored procedure to perform the required operation.
+                </li>
+                <li>
+                    Adding an entry to the task type configuration table.
+                </li>
+                <li>
+                    Defining the required parameters and their labels.
+                </li>
+            </ul>
+
         </div>
-    </div>
-    <div class="row mb-3 pt-3" style="background-color: #f7f7f7;">
-        <div class="col" >
-            <article>
-                <h3 id="matTool">MAT Tool - Miscellaneous Administrative Tasks</h3>
-                <p>I am the sole maintainer of an app written many years ago for the service desk.</p>
-                <p>It allows them to perform certain tasks like adding new users to varuous applications.</p>
-                <p>I have extended the functionality over the years, adding tabs to allow them to do additional tasks. This involves work in VB and  SQL Server.</p>
-            </article>
-        </div>
-    </div>
-    <div class="row mb-3 pt-3" style="background-color: #f7f7f7;">
-        <div class="col" >
-            <article>
-                <h3 id="secondment2023">Secondment 2023-2024</h3>
-                <p>I spent a day a week for about a year in 2023/2024 working with a development team as a developer.</p>
-                <p>I worked on various systems analysing and fixing issues. </p>
-                <p>I had some substantial coding experiance to the end of this time on a rewrite of an application in C#.</p>
-            </article>
-        </div>
-    </div>
-    <div class="row mb-3 pt-3" style="background-color: #f7f7f7;">
-        <div class="col" >
-            <article>
-                <h3 id="secondment2018">Secondment 2018</h3>
+    </section>
+
+    @* Secondments *@
+    <div class="py-2 mb-4" id="secondments"></div>
+
+     @* Secondment 2023-2024 *@
+    <section class="card shadow-sm mb-4">
+            
+        <div class="card-body p-4">
+            <div class="row mb-3 pt-3">
+                <h3 class="h3 card-title">Secondment 2023-2024</h3>
+                <p class="mt-3">
+                    I spent a day a week for about a year in 2023/2024 working with a development team as a developer.
+                </p>
                 <p>
+                    I worked on various systems analysing and fixing issues. 
+                </p>
+                <p>
+                    I had some substantial coding experience to the end of this time on a rewrite of an application in C#.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    @* Secondment 2018 *@
+    <section class="card shadow-sm mb-4">
+
+        <div class="card-body p-4">
+            <div class="row mb-3 pt-3">
+                <h3 class="card-title">Secondment 2018</h3>
+                <p class="mt-3">
                     I spent 3 months with a development team in 2018 working on small development requirements.
                 </p>
-            </article>
+            </div>
         </div>
-    </div>
-    <div class="row mb-3 pt-3" style="background-color: #f7f7f7;">
-        <div class="col" >
-            <article>
-                <h3 id="dailyWork">Daily work</h3>
-                <p>On a daily basis I interact with the code base in Azure DevOps. </p>
-                <p>Many incidents require reading through code and debugging it to resolve issues.</p>
-                <p>On ocasion I have the oportunity to make small code changes which require going througn the entire life cycle of a change from requirement specing to development, testing and deployment. </p>
-                <p>It also required working closely with various dev teams organising environements and with the business to confirm the issue has been resolved.</p>
-            </article>
+    </section>
+
+    @* Daily work *@
+    <section class="card shadow-sm mb-4" id="dailyWork">
+
+        <div class="card-body p-4">
+            <div class="row mb-3 pt-3">
+                <h3 class="card-title">Daily work</h3>
+                <p class="mt-3">
+                    On a daily basis I interact with the code base in Azure DevOps. 
+                </p>
+                <p>
+                    Many incidents require reading through code and debugging it to resolve issues.
+                </p>
+                <p>
+                    On occasion I have the oPportunity to make small code changes which require going through 
+                    the entire life cycle of a change from requirement specification to development, testing and deployment. 
+                </p>
+                <p>
+                    It also required working closely with various dev teams organising environments and with 
+                    the business to confirm the issue has been resolved.
+                </p>
+
+            </div>
         </div>
-    </div>
-    <div class="row mb-3">
-        <div class="col-8">
-            <button class="btn btn-primary" @onclick="() => ReturnButton()">Return to home</button>
+    </section>
+
+    @* Footer *@
+    <footer class="mt-4 pt-4 pb-3">
+        <div class="row mb-3">
+            <div class="col-6">
+                <button class="btn btn-primary" @onclick="() => ReturnButton()">Return to home</button>
+            </div>
+            <div class="col-6 mt-1">
+                <a href="articles#top" class="link-secondary">
+                    Back to top ↑
+                </a>
+            </div>
         </div>
-        <div class="col-4 mt-1">
-            <a href="articles#top">Back To top</a>
-        </div>
-    </div>
+    </footer>
 </div>
 
 @code {
